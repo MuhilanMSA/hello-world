@@ -11,11 +11,10 @@
   <description>Sample Maven project with a working, deployable site.</description>
   <url>http://www.example.com</url>
 
-<properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-</properties>
-
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 
   <modules>
     <module>server</module>
@@ -31,25 +30,29 @@
   </distributionManagement>
 
   <build>
-<plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-compiler-plugin</artifactId>
-  <version>3.9.9</version>  <!-- Add latest stable version -->
-  <configuration>
-    <source>1.7</source>
-    <target>1.7</target>
-  </configuration>
-</plugin>
-  </build>
-         <build>
-                    <plugin>
-                   <groupId>org.apache.maven.plugins</groupId>
-                   <artifactId>maven-war-plugin</artifactId>
-                   <version>3.3.2</version>
-                   <configuration>
-                       <failOnMissingWebXml>false</failOnMissingWebXml>
-                   </configuration>
-              </plugin>
+    <plugins>
+      <!-- Maven Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.9.9</version>  <!-- Add latest stable version -->
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+
+      <!-- Maven WAR Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Release Plugin -->
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
@@ -57,6 +60,7 @@
         </configuration>
       </plugin>
 
+      <!-- Maven Site Plugin -->
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
         <configuration>
@@ -64,28 +68,22 @@
             <plugin>
               <artifactId>maven-checkstyle-plugin</artifactId>
             </plugin>
-
             <plugin>
               <artifactId>maven-jxr-plugin</artifactId>
             </plugin>
-
             <plugin>
               <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
-
             <plugin>
               <artifactId>maven-pmd-plugin</artifactId>
             </plugin>
-
             <plugin>
               <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
-
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>findbugs-maven-plugin</artifactId>
             </plugin>
-
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>taglist-maven-plugin</artifactId>
